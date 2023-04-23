@@ -17,7 +17,7 @@ public:
     void AddEdge(int nodeValue, int neighbourValue);
 private:
     Node * FindNode(int value);
-    Node * CreateNewNode(int value);
+    Node * CreateNewNode(int value, int position);
     std::vector<Node*> AllNodes;
 };
 

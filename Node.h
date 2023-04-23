@@ -11,7 +11,7 @@
 class Node {
 public:
     Node(int value);
-    void CreateEdge(Node *);
+    void CreateEdge(Node * newNeighbour);
     int GetValue();
 
     enum NodeColor { Undiscovered, Discovered, Processed };
