@@ -15,10 +15,19 @@ public:
     ~Graph();
     void AddNode(int nodeValue);
     void AddEdge(int nodeValue, int neighbourValue);
+
+    //Searching
+    void FindAllComponents();
 private:
     Node * FindNode(int value);
     Node * CreateNewNode(int value, int position);
     std::vector<Node*> AllNodes;
+    std::vector<std::vector<Node*>*> Components;
+
+    //Searching
+
+    std::vector<Node*>* BFS(Node * root);
+    Node * IsUndiscoveredNode(bool & IsUndiscovered);
 };
 
 

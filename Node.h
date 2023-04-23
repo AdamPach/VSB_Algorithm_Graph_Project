@@ -10,11 +10,15 @@
 
 class Node {
 public:
+    enum NodeColor { Undiscovered, Discovered, Processed };
+
     Node(int value);
     void CreateEdge(Node * newNeighbour);
     int GetValue();
+    std::vector<Node*> * GetNeighbours();
 
-    enum NodeColor { Undiscovered, Discovered, Processed };
+    NodeColor GetColor();
+    void SetColor(NodeColor color);
 private:
     int value;
     NodeColor nodeColor;

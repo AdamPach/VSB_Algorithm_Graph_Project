@@ -67,6 +67,12 @@ build CMakeFiles/Alg_Graph_Bin.dir/Node.cpp.obj: CXX_COMPILER__Alg_Graph_Bin_Deb
   OBJECT_DIR = CMakeFiles\Alg_Graph_Bin.dir
   OBJECT_FILE_DIR = CMakeFiles\Alg_Graph_Bin.dir
 
+build CMakeFiles/Alg_Graph_Bin.dir/GraphFileReader.cpp.obj: CXX_COMPILER__Alg_Graph_Bin_Debug C$:/Users/adamp/CLionProjects/Alg_Graph_Bin/GraphFileReader.cpp || cmake_object_order_depends_target_Alg_Graph_Bin
+  DEP_FILE = CMakeFiles\Alg_Graph_Bin.dir\GraphFileReader.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  OBJECT_DIR = CMakeFiles\Alg_Graph_Bin.dir
+  OBJECT_FILE_DIR = CMakeFiles\Alg_Graph_Bin.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Alg_Graph_Bin
@@ -75,7 +81,7 @@ build CMakeFiles/Alg_Graph_Bin.dir/Node.cpp.obj: CXX_COMPILER__Alg_Graph_Bin_Deb
 #############################################
 # Link the executable Alg_Graph_Bin.exe
 
-build Alg_Graph_Bin.exe: CXX_EXECUTABLE_LINKER__Alg_Graph_Bin_Debug CMakeFiles/Alg_Graph_Bin.dir/main.cpp.obj CMakeFiles/Alg_Graph_Bin.dir/Graph.cpp.obj CMakeFiles/Alg_Graph_Bin.dir/Node.cpp.obj
+build Alg_Graph_Bin.exe: CXX_EXECUTABLE_LINKER__Alg_Graph_Bin_Debug CMakeFiles/Alg_Graph_Bin.dir/main.cpp.obj CMakeFiles/Alg_Graph_Bin.dir/Graph.cpp.obj CMakeFiles/Alg_Graph_Bin.dir/Node.cpp.obj CMakeFiles/Alg_Graph_Bin.dir/GraphFileReader.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Alg_Graph_Bin.dir
