@@ -14,12 +14,11 @@ Graph *GraphFileReader::ReadGraph()
 {
     Graph * newGraph = new Graph();
     std::ifstream graphFile(this->fileName);
-    int nodeValue = 0, neighbourValue = 0, counter = 0;
+    int nodeValue = 0, neighbourValue = 0;
     while (!graphFile.eof())
     {
         graphFile >> nodeValue >> neighbourValue;
         newGraph->AddEdge(nodeValue, neighbourValue);
-        counter++;
     }
     graphFile.close();
     return newGraph;

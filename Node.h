@@ -19,10 +19,15 @@ public:
 
     NodeColor GetColor();
     void SetColor(NodeColor color);
+
+    void SetIndex(int newIndex);
+    int GetIndex();
 private:
     int value;
     NodeColor nodeColor;
     std::vector<Node*> neighbours;
+
+    int indexInComponent;
 };
 
 

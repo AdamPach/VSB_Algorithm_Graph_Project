@@ -3,6 +3,7 @@
 //
 
 #include <queue>
+#include <iostream>
 #include "Graph.h"
 
 Graph::Graph(){}
@@ -14,11 +15,15 @@ Graph::Graph(int n)
 
 Graph::~Graph()
 {
+
     for(auto component : Components)
         delete component;
 
     for(auto node : AllNodes)
         delete node;
+
+    for(auto counter : GeneratedCounters)
+        delete counter;
 }
 //Public Methods
 
@@ -91,6 +96,7 @@ std::vector<Node *>* Graph::BFS(Node *root)
         Node * currentNode = queue.front();
         currentNode->SetColor(Node::NodeColor::Processed);
         queue.pop();
+        currentNode->SetIndex(component->size());
         component->push_back(currentNode);
 
         for(Node * searchedNode : *(currentNode->GetNeighbours()))
@@ -117,4 +123,32 @@ Node * Graph::IsUndiscoveredNode(bool & IsUndiscovered)
     }
     IsUndiscovered = false;
     return nullptr;
+}
+
+std::vector<Node*> *Graph::GetGreatestComponent()
+{
+    if(Components.empty())
+        return nullptr;
+    std::vector<Node*> * greatestComponent = Components.at(0);
+
+    for(auto component : Components)
+    {
+        if(greatestComponent->size() < component->size())
+            greatestComponent = component;
+    }
+    return greatestComponent;
+}
+
+GraphCounter *Graph::CreateCounterForGreatestComponent()
+{
+    GraphCounter * graphCounter = new GraphCounter(this->GetGreatestComponent());
+    GeneratedCounters.push_back(graphCounter);
+    return graphCounter;
+}
+
+void Graph::PrintResult()
+{
+    std::cout << "--------------------Graph Results--------------------" << std::endl;
+    std::cout << "Graph vertices: " << this->AllNodes.size() << std::endl;
+    std::cout << "-----------------------------------------------------" << std::endl;
 }

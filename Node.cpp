@@ -8,6 +8,7 @@ Node::Node(int value)
 {
     this->value = value;
     this->nodeColor = NodeColor::Undiscovered;
+    this->indexInComponent = -1;
 }
 
 void Node::CreateEdge(Node * newNeighbour)
@@ -33,4 +34,13 @@ Node::NodeColor Node::GetColor()
 void Node::SetColor(NodeColor color)
 {
     this->nodeColor = color;
+}
+
+void Node::SetIndex(int newIndex)
+{
+    this->indexInComponent = newIndex;
+}
+
+int Node::GetIndex() {
+    return indexInComponent;
 }
