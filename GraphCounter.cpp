@@ -10,8 +10,6 @@
 GraphCounter::GraphCounter(std::vector<Node *> *component)
 {
     this->Component = component;
-    MaxEccentricity = -1;
-    MinEccentricity = -1;
     results = new int[Component->size()];
 
     for(int i = 0; i < Component->size(); i++)
@@ -27,13 +25,25 @@ GraphCounter::~GraphCounter()
 
 void GraphCounter::Count()
 {
-    int eccentricity = 0;//BFSGetEccentricity(Component->at(0));
+    int * distances = new int[Component->size()];
+
+    for(int i = 0; i < Component->size(); i++)
+    {
+        distances[i] = -1;
+    }
+
+    int eccentricity = BFSGetEccentricity(Component->at(0), distances);
     MaxEccentricity = eccentricity;
     MinEccentricity = eccentricity;
 
     for(int i = 1; i < Component->size(); i++)
     {
-        //eccentricity = BFSGetEccentricity(Component->at(i));
+        for(int j = 0; j < Component->size(); j++)
+        {
+            distances[j] = -1;
+        }
+
+        eccentricity = BFSGetEccentricity(Component->at(i), distances);
         CheckMinAndMax(eccentricity);
         if(i % 100 == 0)
         {
@@ -91,14 +101,13 @@ void GraphCounter::PrintResults()
 void GraphCounter::ThreadEccentricity(Node *root, GraphCounter * counter, int * distances)
 {
     counter->results[root->GetIndex()] = counter->BFSGetEccentricity(root, distances);
-    int result = counter->results[root->GetIndex()];
 }
 
 void GraphCounter::MultiThreadCount()
 {
-    std::thread threads[1000];
+    std::thread threads[NUM_OF_THREADS];
     int index = 0;
-    int size_tmp = Component->size() * 1000;
+    int size_tmp = Component->size() * NUM_OF_THREADS;
     int * distances = new int[size_tmp];
 
     while(index < Component->size())
@@ -106,7 +115,7 @@ void GraphCounter::MultiThreadCount()
         for(int i = 0; i < size_tmp; i++)
             distances[i] = -1;
 
-        int numberOfCyclus = 1000;
+        int numberOfCyclus = NUM_OF_THREADS;
         for(int i = 0; i < numberOfCyclus; i++)
         {
             if(index >= Component->size())
@@ -132,10 +141,7 @@ void GraphCounter::MultiThreadCount()
     MinEccentricity = results[0];
     for(int i = 1; i < Component->size(); i++)
     {
-        if(MaxEccentricity < results[i])
-            MaxEccentricity = results[i];
-        if(MinEccentricity > results[i])
-            MinEccentricity = results[i];
+        CheckMinAndMax(results[i]);
     }
 }
 

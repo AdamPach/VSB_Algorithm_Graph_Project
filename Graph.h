@@ -19,7 +19,6 @@ public:
 
     void PrintResult();
 
-    //Searching
     void FindAllComponents();
     GraphCounter * CreateCounterForGreatestComponent();
 private:

@@ -1,8 +1,13 @@
 #include <iostream>
 #include "GraphFileReader.h"
 
-int main() {
-    GraphFileReader graphFileReader("C:\\Users\\adamp\\source\\repos\\Algorythms Graph Project\\Algorythms Graph Project\\GraphData\\Graf1.txt");
+int main()
+{
+    std::string filename;
+    std::cout << "Enter file of graph: ";
+    getline(std::cin, filename);
+
+    GraphFileReader graphFileReader(filename);
     Graph * graph = graphFileReader.ReadGraph();
 
     graph->PrintResult();
