@@ -1,0 +1,13 @@
+# ninja log v5
+42	959	7047174314911601	CMakeFiles/Alg_Graph_Bin.dir/Node.cpp.obj	4b6f010aa8ef4526
+7	2507	7047174330351480	CMakeFiles/Alg_Graph_Bin.dir/Graph.cpp.obj	b7b452e1e3f1c49d
+19	2133	7047174326624587	CMakeFiles/Alg_Graph_Bin.dir/main.cpp.obj	b00210033f63e965
+2690	3631	7047174341249756	Alg_Graph_Bin.exe	9fa162ac1e1abded
+31	2690	7047174332204582	CMakeFiles/Alg_Graph_Bin.dir/GraphCounter.cpp.obj	bb9f1107f9666d88
+53	2191	7047174327191405	CMakeFiles/Alg_Graph_Bin.dir/GraphFileReader.cpp.obj	a14252ddc85bec47
+24	763	7047177939513577	CMakeFiles/Alg_Graph_Bin.dir/Node.cpp.obj	f4b1f22efbc429cc
+12	1589	7047177947780392	CMakeFiles/Alg_Graph_Bin.dir/main.cpp.obj	5373d9ac1867c1e5
+33	1615	7047177948038064	CMakeFiles/Alg_Graph_Bin.dir/GraphFileReader.cpp.obj	971b342cd6c6ddc0
+1	2069	7047177952572655	CMakeFiles/Alg_Graph_Bin.dir/Graph.cpp.obj	cef9e9f75b70fbea
+43	2496	7047177956845400	CMakeFiles/Alg_Graph_Bin.dir/GraphCounter.cpp.obj	1296c66701d07f24
+2497	2817	7047177960005739	Alg_Graph_Bin.exe	4f3423a78f237def
