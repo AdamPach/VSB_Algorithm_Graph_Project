@@ -7,9 +7,16 @@
 
 
 #include <vector>
-
+/**
+ * @brief Node is representation of one vertex in the graph
+ * 
+ */
 class Node {
 public:
+    /**
+     * @brief It is for defining if for the node discovery status
+     * 
+     */
     enum NodeColor { Undiscovered, Discovered, Processed };
 
     Node(int value);

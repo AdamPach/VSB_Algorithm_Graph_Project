@@ -10,6 +10,11 @@
 #include <fstream>
 #include "Graph.h"
 
+
+/**
+ * @brief Serves for reading graph file and creating a new Graph based on the file 
+ * 
+ */
 class GraphFileReader {
 public:
     GraphFileReader(std::string fileName);

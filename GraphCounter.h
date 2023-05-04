@@ -5,10 +5,14 @@
 #ifndef ALG_GRAPH_BIN_GRAPHCOUNTER_H
 #define ALG_GRAPH_BIN_GRAPHCOUNTER_H
 
-#define NUM_OF_THREADS 2048
+#define NUM_OF_THREADS 1000
 
 #include "Node.h"
 
+/**
+ * @brief Wraps all neccesseary stuff for counting the results of component
+ * 
+ */
 class GraphCounter {
 public:
     GraphCounter(std::vector<Node*>* component);
@@ -19,6 +23,10 @@ public:
     void Count();
     void MultiThreadCount();
 
+    /**
+     * @brief Serves as place where all results of Eccentricity are stored
+     * 
+     */
     int * results;
 private:
     std::vector<Node*>* Component;

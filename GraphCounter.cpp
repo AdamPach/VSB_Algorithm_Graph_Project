@@ -7,6 +7,12 @@
 #include <thread>
 #include "GraphCounter.h"
 
+/**
+ * @brief Construct a new Graph Counter:: Graph Counter object,
+ * 
+ * @param component Component of Graph where the counter whill count
+ */
+
 GraphCounter::GraphCounter(std::vector<Node *> *component)
 {
     this->Component = component;
@@ -18,11 +24,19 @@ GraphCounter::GraphCounter(std::vector<Node *> *component)
     }
 }
 
+/**
+ * @brief Destroy the Graph Counter:: Graph Counter object
+ * 
+ */
 GraphCounter::~GraphCounter()
 {
     delete[] results;
 }
 
+/**
+ * @brief Start the Count procedure one thread
+ * 
+ */
 void GraphCounter::Count()
 {
     int * distances = new int[Component->size()];
@@ -52,6 +66,13 @@ void GraphCounter::Count()
     }
 }
 
+/**
+ * @brief Special verion of BFS which count Eccentricity from root node
+ * 
+ * @param root Define starting point for the BFS
+ * @param distances Serves as array where the distances of current BFS are stored and as help with deciding if the node is undiscovered as well
+ * @return int Eccentricity for current node
+ */
 int GraphCounter::BFSGetEccentricity(Node * root, int * distances)
 {
     int highestDistance = -1;
@@ -78,10 +99,14 @@ int GraphCounter::BFSGetEccentricity(Node * root, int * distances)
             }
         }
     }
-    //delete[] distances;
     return highestDistance;
 }
 
+/**
+ * @brief Helper function for setting the results
+ * 
+ * @param newValue Checked value
+ */
 void GraphCounter::CheckMinAndMax(int newValue)
 {
     if(MaxEccentricity < newValue)
@@ -90,6 +115,10 @@ void GraphCounter::CheckMinAndMax(int newValue)
         MinEccentricity = newValue;
 }
 
+/**
+ * @brief Print result of the counter to the console
+ * 
+ */
 void GraphCounter::PrintResults()
 {
     std::cout << "-------------------Counter Results-------------------" << std::endl;
@@ -98,11 +127,22 @@ void GraphCounter::PrintResults()
     std::cout << "-----------------------------------------------------" << std::endl;
 }
 
+/**
+ * @brief Wraper method for dividing the BFS counting to the threads
+ * 
+ * @param root Starting node
+ * @param counter Graph counter, threads need a static methods
+ * @param distances Distances array, 
+ */
 void GraphCounter::ThreadEccentricity(Node *root, GraphCounter * counter, int * distances)
 {
     counter->results[root->GetIndex()] = counter->BFSGetEccentricity(root, distances);
 }
 
+/**
+ * @brief Divide the computing to NUM_OF_THREADS threads, distances variable is one huge array which is divided for individual threads. I chose this approach for minimalizing of allocation process
+ * 
+ */
 void GraphCounter::MultiThreadCount()
 {
     std::thread threads[NUM_OF_THREADS];

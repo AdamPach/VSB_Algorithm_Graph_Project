@@ -1,2 +1,6 @@
 /latex/
 /html/
+/.idea/
+/.vs/
+/out/
+/cmake-build-debug/

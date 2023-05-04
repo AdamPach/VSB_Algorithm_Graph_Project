@@ -1,3 +1,0 @@
-C:/Users/adamp/CLionProjects/Alg_Graph_Bin/cmake-build-debug/CMakeFiles/Alg_Graph_Bin.dir
-C:/Users/adamp/CLionProjects/Alg_Graph_Bin/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/adamp/CLionProjects/Alg_Graph_Bin/cmake-build-debug/CMakeFiles/rebuild_cache.dir

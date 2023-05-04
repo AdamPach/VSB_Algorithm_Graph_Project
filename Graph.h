@@ -8,7 +8,10 @@
 
 #include "Node.h"
 #include "GraphCounter.h"
-
+/**
+ * @brief Represent one graph. It holds all nodes. Implement methods for searching all components
+ * 
+ */
 class Graph {
 public:
     Graph();
@@ -24,6 +27,7 @@ public:
 private:
     Node * FindNode(int value);
     Node * CreateNewNode(int value, int position);
+
     std::vector<GraphCounter*> GeneratedCounters;
     std::vector<Node*> AllNodes;
     std::vector<std::vector<Node*>*> Components;
